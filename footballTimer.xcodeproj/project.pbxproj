@@ -20,6 +20,8 @@
 		E07D7B4F1DE618B200DDC68D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07D7B4E1DE618B200DDC68D /* ExtensionDelegate.swift */; };
 		E07D7B511DE618B200DDC68D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07D7B501DE618B200DDC68D /* NotificationController.swift */; };
 		E07D7B531DE618B200DDC68D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E07D7B521DE618B200DDC68D /* Assets.xcassets */; };
+		E0D05F1A1E22D758004D9876 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0D05F191E22D758004D9876 /* HealthKit.framework */; };
+		E0D05F1D1E22D787004D9876 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0D05F1C1E22D787004D9876 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,10 @@
 		E07D7B501DE618B200DDC68D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		E07D7B521DE618B200DDC68D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E07D7B541DE618B200DDC68D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0D05F171E22D758004D9876 /* footballTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = footballTimer.entitlements; sourceTree = "<group>"; };
+		E0D05F191E22D758004D9876 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		E0D05F1B1E22D787004D9876 /* footballTimer WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "footballTimer WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		E0D05F1C1E22D787004D9876 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D05F1A1E22D758004D9876 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D05F1D1E22D787004D9876 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +118,7 @@
 				E07D7B3A1DE618B200DDC68D /* footballTimer WatchKit App */,
 				E07D7B491DE618B200DDC68D /* footballTimer WatchKit Extension */,
 				E07D7B251DE618B200DDC68D /* Products */,
+				E0D05F181E22D758004D9876 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +135,7 @@
 		E07D7B261DE618B200DDC68D /* footballTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E0D05F171E22D758004D9876 /* footballTimer.entitlements */,
 				E07D7B271DE618B200DDC68D /* AppDelegate.swift */,
 				E07D7B291DE618B200DDC68D /* ViewController.swift */,
 				E07D7B2B1DE618B200DDC68D /* Main.storyboard */,
@@ -149,6 +159,7 @@
 		E07D7B491DE618B200DDC68D /* footballTimer WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E0D05F1B1E22D787004D9876 /* footballTimer WatchKit Extension.entitlements */,
 				E07D7B4C1DE618B200DDC68D /* InterfaceController.swift */,
 				E07D7B4E1DE618B200DDC68D /* ExtensionDelegate.swift */,
 				E07D7B501DE618B200DDC68D /* NotificationController.swift */,
@@ -165,6 +176,15 @@
 				E07D7B4B1DE618B200DDC68D /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E0D05F181E22D758004D9876 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0D05F1C1E22D787004D9876 /* HealthKit.framework */,
+				E0D05F191E22D758004D9876 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,20 +250,41 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = tvolker;
 				TargetAttributes = {
 					E07D7B231DE618B200DDC68D = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9UZFP6MFS3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					E07D7B351DE618B200DDC68D = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9UZFP6MFS3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.watchos.app = {
+								enabled = 1;
+							};
+						};
 					};
 					E07D7B441DE618B200DDC68D = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9UZFP6MFS3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -378,6 +419,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -428,6 +470,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -457,6 +500,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "footballTimer WatchKit Extension/footballTimer WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = 9UZFP6MFS3;
 				INFOPLIST_FILE = "footballTimer WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tvolker.RefWatch.footballTimer.watchkitapp.watchkitextension;
@@ -473,6 +518,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "footballTimer WatchKit Extension/footballTimer WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = 9UZFP6MFS3;
 				INFOPLIST_FILE = "footballTimer WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tvolker.RefWatch.footballTimer.watchkitapp.watchkitextension;
@@ -490,6 +537,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9UZFP6MFS3;
 				IBSC_MODULE = footballTimer_WatchKit_Extension;
 				INFOPLIST_FILE = "footballTimer WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tvolker.RefWatch.footballTimer.watchkitapp;
@@ -507,6 +555,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9UZFP6MFS3;
 				IBSC_MODULE = footballTimer_WatchKit_Extension;
 				INFOPLIST_FILE = "footballTimer WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tvolker.RefWatch.footballTimer.watchkitapp;
@@ -523,7 +572,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = footballTimer/footballTimer.entitlements;
+				DEVELOPMENT_TEAM = 9UZFP6MFS3;
 				INFOPLIST_FILE = footballTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tvolker.RefWatch.footballTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -535,7 +587,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = footballTimer/footballTimer.entitlements;
+				DEVELOPMENT_TEAM = 9UZFP6MFS3;
 				INFOPLIST_FILE = footballTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tvolker.RefWatch.footballTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -553,7 +608,7 @@
 				E07D7B561DE618B200DDC68D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E07D7B571DE618B200DDC68D /* Build configuration list for PBXNativeTarget "footballTimer WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +617,7 @@
 				E07D7B591DE618B200DDC68D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		E07D7B5B1DE618B200DDC68D /* Build configuration list for PBXNativeTarget "footballTimer WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +626,7 @@
 				E07D7B5D1DE618B200DDC68D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		E07D7B5F1DE618B200DDC68D /* Build configuration list for PBXNativeTarget "footballTimer" */ = {
 			isa = XCConfigurationList;
@@ -578,6 +635,7 @@
 				E07D7B611DE618B200DDC68D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
